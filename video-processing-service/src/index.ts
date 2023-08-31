@@ -13,13 +13,13 @@ app.post("/process-video", (req, res) => {
     if (!outputFilePath) { res.status(400).send("Bad Request: Missing output file path"); }
 
     ffmpeg(inputFilePath)
-        .outputOptions("-vf", "scale=-1:360") // convert video file(VF) to 360p
+        .outputOptions("-vf", "scale=-1:720p") // convert video file(VF) to 360p
         .on("end", () => {
             res.status(200).send("Processing finished successfully.")
         })
         .on("error", (err) => {
-            console.log(`An error occurred: ${ err.message }`);
-            res.status(500).send(`Internal Server Error: ${ err.message }`);
+            console.log(`An error occurred: ${err.message}`);
+            res.status(500).send(`Internal Server Error: ${err.message}`);
         })
         .save(outputFilePath);
 });
@@ -27,6 +27,6 @@ app.post("/process-video", (req, res) => {
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(
-        `Video processing service listening at http://localhost:${ port }`
+        `Video processing service listening at http://localhost:${port}`
     );
 });
