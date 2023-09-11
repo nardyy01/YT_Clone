@@ -1,5 +1,4 @@
 import express from "express";
-import ffmpeg from "fluent-ffmpeg";
 import { convertVideo, deleteRawVideo, deleteProcessedVideo, downloadRawVideo, setupDirectories, uploadProcessedVideo } from "./gStorage";
 
 setupDirectories();
@@ -31,7 +30,7 @@ app.post("/process-video", async (req, res) => {
     // Download the raw video from Cloud Storage
     await downloadRawVideo(inputFileName);
 
-    // Convert the video to 720p
+    // Convert the video to 360p
     try {
         await convertVideo(inputFileName, outputFileName);
     } catch (err) {

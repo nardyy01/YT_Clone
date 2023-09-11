@@ -29,7 +29,7 @@ export function convertVideo(rawVideoName: string, processedVideoName: string) {
     return new Promise<void>((resolve, reject) => {
         // Convert logic
         ffmpeg(`${localRawVideoPath}/${rawVideoName}`)
-            .outputOptions("-vf", "scale=-1:720")
+            .outputOptions("-vf", "scale=-2:360")
             .on("end", () => {
                 console.log("Processing finished successfully.");
                 resolve();
