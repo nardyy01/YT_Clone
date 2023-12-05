@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig);
 
 // Contain auth below using some function wrappers
 const auth = getAuth(app);
-export const functions = getFunctions();
+export const functions = getFunctions(app);
 
 /**
  * Signs the user in with a Googel pop up

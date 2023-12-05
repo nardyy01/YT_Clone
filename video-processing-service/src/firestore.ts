@@ -5,7 +5,7 @@ import { Firestore } from "firebase-admin/firestore";
 initializeApp({ credential: credential.applicationDefault() });
 
 const firestore = new Firestore();
-const videoCollectionId = 'video';
+const videoCollectionId = 'videos';
 
 export interface Video {
     id?: string,

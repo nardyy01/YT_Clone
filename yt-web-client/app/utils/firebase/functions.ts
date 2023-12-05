@@ -27,9 +27,9 @@ export async function uploadVideo(file: File) {
         }
     });
     return uploadResult;
-}
+};
 
 export async function getVideos() {
-    const response = await getVideosFunction();
-    return response.data as Video[];
+    const response: any = await getVideosFunction();
+    return (await response).data as Video[];
 };
