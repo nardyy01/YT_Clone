@@ -9,6 +9,7 @@ import { onAuthStateChangedHelper } from "../firebase/firebase";
 import { useEffect, useState } from "react";
 import { User } from "firebase/auth";
 import { unsubscribe } from "diagnostics_channel";
+import Upload from "./upload/upload";
 
 export default function Navbar() {
     const [user, setUser] = useState<User | null>(null);
@@ -29,7 +30,7 @@ export default function Navbar() {
                 />
             </Link>
             {
-                // TODO: Add a upload
+                user && <Upload />
             }
             <SignIn user={user} />
         </nav>
